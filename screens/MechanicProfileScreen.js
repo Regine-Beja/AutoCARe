@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',  // Position the header absolutely to move it higher on the screen
     top: 5,  // Adjust this value to move the header up or down
-    left: 5,  // Slight padding to move the logo and arrow away from the edge
+    left: 20,  // Slight padding to move the logo and arrow away from the edge
     alignItems: 'flex-start',  // Align the logo and arrow to the left
     backgroundColor: '#11324D',
     zIndex: 5,  // Ensure the header is above other content
