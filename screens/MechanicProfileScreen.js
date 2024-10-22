@@ -119,26 +119,31 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     width: '100%',
-    paddingTop: 40,
-    paddingBottom: 20,
-    paddingLeft: 10,  // Align the logo and arrow to the left
+    position: 'absolute',  // Position the header absolutely to move it higher on the screen
+    top: 20,  // Adjust this value to move the header up or down
+    left: 10,  // Slight padding to move the logo and arrow away from the edge
+    alignItems: 'flex-start',  // Align the logo and arrow to the left
     backgroundColor: '#11324D',
-    alignItems: 'flex-start',  // Aligns items to the left
+    zIndex: 10,  // Ensure the header is above other content
+  },
+  logoContainer: {
+    alignItems: 'flex-start',  // Align logo to the left
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 130,
+    height: 130,
   },
   backArrow: {
-    marginTop: 10,  // Add some spacing between the logo and arrow
+    marginTop: 10,  // Space between the logo and the arrow
+    marginLeft: 10, // Slight padding to the left for the arrow
   },
   title: {
     fontSize: 22,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginTop: 10,
+    marginTop: 150,  // Increase margin to push title down, since the header is now positioned higher
     marginBottom: 20,
-  },
+  },  
   profilePicture: {
     justifyContent: 'center',
     alignItems: 'center',
