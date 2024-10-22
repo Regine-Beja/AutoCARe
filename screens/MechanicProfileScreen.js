@@ -120,11 +120,11 @@ const styles = StyleSheet.create({
   headerContainer: {
     width: '100%',
     position: 'absolute',  // Position the header absolutely to move it higher on the screen
-    top: 20,  // Adjust this value to move the header up or down
-    left: 10,  // Slight padding to move the logo and arrow away from the edge
+    top: 5,  // Adjust this value to move the header up or down
+    left: 5,  // Slight padding to move the logo and arrow away from the edge
     alignItems: 'flex-start',  // Align the logo and arrow to the left
     backgroundColor: '#11324D',
-    zIndex: 10,  // Ensure the header is above other content
+    zIndex: 5,  // Ensure the header is above other content
   },
   logoContainer: {
     alignItems: 'flex-start',  // Align logo to the left
@@ -134,25 +134,24 @@ const styles = StyleSheet.create({
     height: 130,
   },
   backArrow: {
-    marginTop: 10,  // Space between the logo and the arrow
+    marginTop: -20,  // Space between the logo and the arrow
     marginLeft: 10, // Slight padding to the left for the arrow
   },
   title: {
     fontSize: 22,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginTop: 150,  // Increase margin to push title down, since the header is now positioned higher
+    marginTop: 60,  // Increase margin to push title down, since the header is now positioned higher
     marginBottom: 20,
   },  
   profilePicture: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 20,
   },
   profileImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 90,
+    height: 90,
     resizeMode: 'cover',
   },
   inputContainer: {
