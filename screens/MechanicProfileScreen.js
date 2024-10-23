@@ -15,8 +15,15 @@ const MechanicProfileScreen = ({ navigation }) => {
       return;
     }
 
-    // Open the pop-up/modal after pressing "Add Profile"
+    // Open the modal after pressing "Add Profile"
     setModalVisible(true);
+  };
+
+  // Function to handle selecting a profile picture (or closing the modal)
+  const handleSelectPicture = () => {
+    // Add logic for selecting a profile picture here
+    // For now, we'll just close the modal
+    setModalVisible(false);
   };
 
   return (
@@ -25,13 +32,11 @@ const MechanicProfileScreen = ({ navigation }) => {
 
       {/* Custom Header */}
       <View style={styles.headerContainer}>
-        {/* Logo aligned to the upper left */}
         <Image 
           source={require('../AClogo.png')}  // Ensure the path to your logo is correct
           style={styles.logo}
           resizeMode="contain"
         />
-        {/* Custom back arrow below the logo */}
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backArrow}>
           <Ionicons name="chevron-back" size={30} color="#ffffff" />
         </TouchableOpacity>
@@ -45,7 +50,7 @@ const MechanicProfileScreen = ({ navigation }) => {
           style={styles.profileImage}
         />
       </View>
-      
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Name</Text>
         <TextInput
@@ -88,23 +93,26 @@ const MechanicProfileScreen = ({ navigation }) => {
 
       {/* Modal for Select Profile Picture */}
       <Modal
-        transparent={true}
-        visible={modalVisible}
-        animationType="slide"
-        onRequestClose={() => setModalVisible(false)} // Close modal on request
+  transparent={true}
+  visible={modalVisible}
+  animationType="slide"
+  onRequestClose={() => setModalVisible(false)} // Close modal on request
+>
+  <View style={styles.modalBackground}>
+    <View style={styles.modalContainer}>
+      
+      {/* Make the text a TouchableOpacity so it behaves like a button */}
+      <TouchableOpacity 
+        onPress={handleSelectPicture}  // Trigger picture selection or close modal
       >
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContainer}>
-            <Text style={styles.modalText}>Select profile picture</Text>
-            <TouchableOpacity 
-              style={styles.closeButton}
-              onPress={() => setModalVisible(false)} // Close modal on button press
-            >
-              <Text style={styles.buttonText}>Close</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+        <Text style={styles.modalTextButton}>Select profile picture</Text>
+      </TouchableOpacity>
+
+    </View>
+  </View>
+</Modal>
+
+
     </View>
   );
 };
@@ -125,9 +133,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',  // Align the logo and arrow to the left
     backgroundColor: '#11324D',
     zIndex: 5,  // Ensure the header is above other content
-  },
-  logoContainer: {
-    alignItems: 'flex-start',  // Align logo to the left
   },
   logo: {
     width: 130,
@@ -197,17 +202,14 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
-  modalText: {
+  modalTextButton: {
     fontSize: 18,
-    color: '#11324D',
+    color: 'black',  // You can change this color to make it stand out
+    fontWeight: 'bold',
+    textAlign: 'center',
     marginBottom: 20,
-  },
-  closeButton: {
-    backgroundColor: '#FF5722',
-    paddingVertical: 12,
-    paddingHorizontal: 50,
-    borderRadius: 25,
-  },
+  }
+  
 });
 
 export default MechanicProfileScreen;
